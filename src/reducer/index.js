@@ -4,6 +4,9 @@ const initialState = {
 
 const reducer = (state = initialState, action)=> {
   switch(action.type){
+    case 'INIT_STICKER':
+      const stickers = action.payload;
+      return Object.assign({}, state, {stickers})
     case 'CLICK_SPOT':
       return clickSpot(state, action);
     default:

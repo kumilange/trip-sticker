@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Map from '../components/Map';
-import { clickSpot } from '../actions'
+import * as actionCreators from '../actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({
-    clickSpot,
+    ...actionCreators
   }, dispatch)
 }
 

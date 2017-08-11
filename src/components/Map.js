@@ -30,6 +30,10 @@ const MyMap = withGoogleMap(props => {
 );
 
 class Map extends Component {
+  componentDidMount() {
+    this.props.fetchStickers()
+  }
+
   render () {
     return (
       <MyMap

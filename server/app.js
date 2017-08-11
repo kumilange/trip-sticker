@@ -4,15 +4,13 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const index = require('./routes/index');
-const stickers = require('./routes/stickers');
 const app = express();
 
 // added
 const config = require('./config.js');
 // TODO サービス作ったらコメントイン
 const services = require('../services')(config);
-
+const apiRounter = require('./routes/index')(services);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -40,7 +38,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // 4. If the requests begin with '/', hand them off to the API router
 //TODO ルーター変更？
-app.use('/', index);
+// app.use('/', index)(services);
+app.use('/', apiRounter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
