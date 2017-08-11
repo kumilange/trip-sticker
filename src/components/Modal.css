@@ -62,6 +62,6 @@ dialog::backdrop {
   font-size: 26px !important;
 }
 .mdl-dialog__actions {
-  width: 270px !important;
-  padding: 8px 24px;
+  width: 280px !important;
+  padding: 8px 8px 24px 8px !important;
 }
