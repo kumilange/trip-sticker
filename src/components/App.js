@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Map from './Map'
+import Map from '../containers/Map'
 import './App.css';
 
 const App = (props) => {
@@ -14,7 +14,6 @@ const App = (props) => {
             <Map />
           </div> 
         </main>
-        <footer>Footer</footer>
       </div>
     );
 }

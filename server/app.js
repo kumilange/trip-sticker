@@ -1,14 +1,17 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const index = require('./routes/index');
+const stickers = require('./routes/stickers');
+const app = express();
 
-var index = require('./routes/index');
-var users = require('./routes/users');
-
-var app = express();
+// added
+const config = require('./config.js');
+// TODO サービス作ったらコメントイン
+const services = require('../services')(config);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -16,18 +19,32 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+// app.use(logger('dev'));
+// 1. log every request when it comes in
 app.use(logger('dev'));
+
+// 2. Set the headers for incoming requests
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS,PATCH');
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, authorization");
+  next();
+});
+
+// 3. Parse request bodies as json
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// 4. If the requests begin with '/', hand them off to the API router
+//TODO ルーター変更？
 app.use('/', index);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
