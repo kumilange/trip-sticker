@@ -32,7 +32,23 @@ dialog::backdrop {
 .mdl-button {
   font-family: 'Indie Flower', cursive !important;
 }
+.mdl-dialog {
+  width: 340px !important;;
+  border-radius: 25%;
+}
+.mdl-button {
+  font-size: 19px !important;
+  font-weight: bold !important;
+}
+.mdl-button--accent {
+  border: none !important;
+}
+.mdl-button.confirm {
+  background: rgb(255,64,129);
+  color: #ffffff;
+}
 .mdl-dialog__title {
+  padding: 16px 24px 0;
   font-size: 30px !important;
   font-weight: bold;
 }
@@ -45,6 +61,7 @@ dialog::backdrop {
 .mdl-textfield__input {
   font-size: 26px !important;
 }
-.mdl-button {
-  font-size: 19px !important;
+.mdl-dialog__actions {
+  width: 270px !important;
+  padding: 8px 24px;
 }

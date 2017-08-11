@@ -2,19 +2,23 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Modal from '../components/Modal';
-import { saveStickerInfo, closeModal } from '../actions'
+import { saveStickerInfo, closeModal, inputCountry, inputCity, inputNote, inputUsername } from '../actions'
 
 const mapStateToProps = (state) => {
   return {
     isModalOpen: state.isModalOpen,
-    position: state.position
+    sticker: state.sticker,
   };
 }
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({
     saveStickerInfo,
-    closeModal
+    closeModal,
+    inputCountry,
+    inputCity,
+    inputNote,
+    inputUsername
   }, dispatch)
 }
 

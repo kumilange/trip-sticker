@@ -9,33 +9,33 @@ const Modal = (props)=> {
        <DialogTitle>Make a sticker!</DialogTitle>
         <DialogContent>
           <Textfield
-            onChange={() => {}}
+            onChange={(e) => {props.inputCountry(e.target.value)}}
             label="Country"
             floatingLabel
             style={{width: '240px'}}
           />
           <Textfield
-            onChange={() => {}}
+            onChange={(e) => {props.inputCity(e.target.value)}}
             label="City"
             floatingLabel
             style={{width: '240px'}}
           />
           <Textfield
-            onChange={() => {}}
+            onChange={(e) => {props.inputNote(e.target.value)}}
             label="Note"
             floatingLabel
             style={{width: '240px'}}
           />
           <Textfield
-            onChange={() => {}}
+            onChange={(e) => {props.inputUsername(e.target.value)}}
             label="Your name"
             floatingLabel
             style={{width: '240px'}}
           />
         </DialogContent>
         <DialogActions>
-          <Button type='button' onClick={()=> props.saveStickerInfo(props.position)}>Save Sticker</Button>
-          <Button type='button' onClick={props.closeModal}>Cancel</Button>
+          <Button type='button' onClick={()=> props.saveStickerInfo(props.sticker)} raised accent ripple>Save Sticker</Button>
+          <Button type='button' onClick={props.closeModal} raised ripple>Cancel</Button>
         </DialogActions>
       </Dialog>
     </div>

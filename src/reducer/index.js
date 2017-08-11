@@ -1,7 +1,15 @@
 const initialState = {
   stickers: [],
+  sticker: {
+    id: null,
+    position: null,
+    country: null,
+    city: null,
+    note: null,
+    username: null,
+  },
   isModalOpen: false,
-  position: null
+  position: null,
 }
 
 const reducer = (state = initialState, action)=> {
@@ -21,21 +29,44 @@ const reducer = (state = initialState, action)=> {
         isModalOpen : false,
         position: null
       });
+    case 'INPUT_COUNTRY':
+      return Object.assign({}, state, {
+        sticker : { country: action.payload }
+      });
+    case 'INPUT_CITY':
+      return Object.assign({}, state, {
+        sticker : { country: action.payload }
+      });
+    case 'INPUT_NOTE':
+      return Object.assign({}, state, {
+        sticker : { country: action.payload }
+      });
+    case 'INPUT_USERNAME':
+      return Object.assign({}, state, {
+        sticker : { country: action.payload }
+      });
     default:
     return state;
   }
 }
 
 const saveStickerInfo = (state, action)=> {
+  console.log('save',action)
   return Object.assign({}, ...state, {
     stickers: [
       ...state.stickers,
-      {
-        lat: action.payload.lat,
-        lng: action.payload.lng
-      }
+      ...state.sticker,
+      ...state.sticker.position
     ]
   });
 }
+
+// save後にリセットするアクションディスパッチ
+
+// const setStickerInput = (state, action, label)=> {
+//   return Object.assign({}, state, {
+//     sticker : { label: action.payload }
+//   });
+// }
 
 export default reducer;

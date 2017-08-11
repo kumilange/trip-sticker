@@ -17,10 +17,10 @@ export function fetchStickers () {
   }
 }
 
-export function saveStickerInfo (position) {
+export function saveStickerInfo (sticker) {
   return async (dispatch) => {
     try {
-      const postData =  { lat: position.lat, lng: position.lng };
+      const postData =  sticker;
       // save data in DB
       const savedSticker = await ( await fetch('http://localhost:3001', {
         method: 'post',
@@ -57,6 +57,42 @@ export function closeModal () {
     dispatch({
       type: 'CLOSE_MODAL',
       isModalOpen: false
+    })
+  }
+}
+
+export function inputCountry (country) {
+  return dispatch => {
+    dispatch({
+      type: 'INPUT_COUNTRY',
+      payload: country
+    })
+  }
+}
+
+export function inputCity (city) {
+  return dispatch => {
+    dispatch({
+      type: 'INPUT_CITY',
+      payload: city
+    })
+  }
+}
+
+export function inputNote (note) {
+  return dispatch => {
+    dispatch({
+      type: 'INPUT_NOTE',
+      payload: note
+    })
+  }
+}
+
+export function inputUsername (username) {
+  return dispatch => {
+    dispatch({
+      type: 'INPUT_USERNAME',
+      payload: username
     })
   }
 }
