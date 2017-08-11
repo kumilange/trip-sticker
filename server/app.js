@@ -8,7 +8,6 @@ const app = express();
 
 // added
 const config = require('./config.js');
-// TODO サービス作ったらコメントイン
 const services = require('../services')(config);
 const apiRounter = require('./routes/index')(services);
 // view engine setup

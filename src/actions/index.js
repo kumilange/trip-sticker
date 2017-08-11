@@ -18,16 +18,24 @@ export function fetchStickers () {
 }
 
 export function clickSpot (latLng) {
-  // save db
+  return async (dispatch) => {
+    try {
+      const lat = latLng.lat();
+      const lng = latLng.lng();
+      const postData =  { lat, lng };
+      const savedSticker = await ( await fetch('http://localhost:3001', {
+        method: 'post',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(postData)
+      })).json();
 
-  // update state in reducer
-  return dispatch => {
-    dispatch({
-      type: 'CLICK_SPOT',
-      payload: {
-        lat: latLng.lat(),
-        lng: latLng.lng()
-      }
-    })
+      // update state in reducer
+      dispatch({
+        type: 'CLICK_SPOT',
+        payload: savedSticker
+      })
+    } catch (err) {
+      console.log(err.message)
+    }
   }
 }
