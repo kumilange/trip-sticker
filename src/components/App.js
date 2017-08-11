@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Map from '../containers/Map'
+import Modal from '../containers/Modal'
 import './App.css';
 
 const App = (props) => {
@@ -14,6 +15,7 @@ const App = (props) => {
           <Map />
         </div>
       </main>
+      <Modal />
     </div>
   );
 }

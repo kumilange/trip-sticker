@@ -17,12 +17,11 @@ export function fetchStickers () {
   }
 }
 
-export function clickSpot (latLng) {
+export function saveStickerInfo (position) {
   return async (dispatch) => {
     try {
-      const lat = latLng.lat();
-      const lng = latLng.lng();
-      const postData =  { lat, lng };
+      const postData =  { lat: position.lat, lng: position.lng };
+      // save data in DB
       const savedSticker = await ( await fetch('http://localhost:3001', {
         method: 'post',
         headers: {'Content-Type':'application/json'},
@@ -31,11 +30,33 @@ export function clickSpot (latLng) {
 
       // update state in reducer
       dispatch({
-        type: 'CLICK_SPOT',
+        type: 'SAVE_STICKER',
         payload: savedSticker
       })
     } catch (err) {
       console.log(err.message)
     }
+  }
+}
+
+export function openModal (latLng) {
+  const lat = latLng.lat();
+  const lng = latLng.lng();
+  const position =  { lat, lng };
+  return dispatch => {
+    dispatch({
+      type: 'OPEN_MODAL',
+      isModalOpen: true,
+      payload: position
+    })
+  }
+}
+
+export function closeModal () {
+  return dispatch => {
+    dispatch({
+      type: 'CLOSE_MODAL',
+      isModalOpen: false
+    })
   }
 }

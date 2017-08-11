@@ -50,7 +50,7 @@ class Map extends Component {
           />
         }
         stickers={this.props.stickers}
-        onMapClick={this.props.clickSpot}
+        onMapClick={this.props.openModal}
       />
     )
   }

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Map from '../components/Map';
-import * as actionCreators from '../actions'
+import { fetchStickers, openModal } from '../actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -12,7 +12,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({
-    ...actionCreators
+    fetchStickers,
+    openModal
   }, dispatch)
 }
 

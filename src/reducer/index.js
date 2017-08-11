@@ -1,5 +1,7 @@
 const initialState = {
-  stickers: []
+  stickers: [],
+  isModalOpen: false,
+  position: null
 }
 
 const reducer = (state = initialState, action)=> {
@@ -7,14 +9,24 @@ const reducer = (state = initialState, action)=> {
     case 'INIT_STICKER':
       const stickers = action.payload;
       return Object.assign({}, state, {stickers})
-    case 'CLICK_SPOT':
-      return clickSpot(state, action);
+    case 'SAVE_STICKER':
+      return saveStickerInfo(state, action);
+    case 'OPEN_MODAL':
+      return Object.assign({}, state, {
+        isModalOpen : true,
+        position: action.payload
+      });
+    case 'CLOSE_MODAL':
+      return Object.assign({}, state, {
+        isModalOpen : false,
+        position: null
+      });
     default:
     return state;
   }
 }
 
-const clickSpot = (state, action)=> {
+const saveStickerInfo = (state, action)=> {
   return Object.assign({}, ...state, {
     stickers: [
       ...state.stickers,
