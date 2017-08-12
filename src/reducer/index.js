@@ -19,8 +19,6 @@ const reducer = (state = initialState, action)=> {
   switch(action.type){
     case 'INIT_STICKER':
       return initStickers(state, action)
-      // const stickers = action.payload;
-      // return Object.assign({}, state, {stickers})
     case 'SAVE_STICKER':
       return saveStickerInfo(state, action);
     case 'CLEAR_STICKER':
