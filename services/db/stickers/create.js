@@ -1,5 +1,4 @@
 module.exports = (knex, Sticker) => {
-
   return async (params) => {
     try {
       await knex('stickers')
@@ -11,7 +10,6 @@ module.exports = (knex, Sticker) => {
           note: params.note,
           username: params.username,
         });
-      // TODO idに直す
       const stickers = await knex('stickers')
         .select();
       return new Sticker(stickers.pop());

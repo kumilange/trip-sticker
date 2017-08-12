@@ -9,7 +9,7 @@ const Sticker = function(dbSticker){
 };
 
 Sticker.prototype.serialize = function(){
-  // we use a serializer to format the object and
+  // use a serializer to format the object and
   // clean out any information that shouldn't be
   // sent to the client
   return {

@@ -1,5 +1,4 @@
 exports.up = function(knex, Promise) {
-  // create the 'stickers' table with three columns
   return knex.schema.createTable('stickers', (t) => {
     t.increments()
       .index();

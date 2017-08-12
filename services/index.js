@@ -1,7 +1,6 @@
 const fs = require('fs');
 
 module.exports = (config) => {
-
   let services = {};
   fs.readdirSync(__dirname).forEach((fileName) => {
     if(fileName.indexOf('.') === -1){
@@ -9,6 +8,5 @@ module.exports = (config) => {
       services[fileName] = require(`${__dirname}/${fileName}`)(config[fileName]);
     }
   });
-
   return services;
 };
