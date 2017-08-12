@@ -36,6 +36,7 @@ dialog::backdrop {
   border-radius: 25%;
 }
 .mdl-button {
+  width: 100px !important;
   font-size: 19px !important;
   font-weight: bold !important;
 }
@@ -61,6 +62,9 @@ dialog::backdrop {
   font-size: 26px !important;
 }
 .mdl-dialog__actions {
-  width: 280px !important;
+  width: 230px !important;;
+  justify-content: space-between !important;;
+  margin-left: auto !important;;
+  margin-right: auto !important;;
   padding: 8px 8px 24px 8px !important;
 }

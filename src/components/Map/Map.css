@@ -3,7 +3,8 @@
   height: 610px;
   overflow: hidden;
   margin-left: auto;
-  margin-right: auto; 
+  margin-right: auto;
+  border-radius: 4px;
 }
 
 .gmnoprint {
@@ -25,14 +26,16 @@
 .city,
 .name,
 .note{
-  width: 55px;
+  display: inline-block;
+  width: 60px;
   text-align: center;
   margin-top: 3px;
   margin-right: 10px;
-  display: inline-block;
-  padding: 1px 3px;
+  line-height: 14px;
+  padding: 3px;
   border-radius: 3px;
   color: #ffffff;
+  box-sizing: border-box;
 }
 .country {
   background-color: #EF5350;
@@ -44,5 +47,6 @@
   background-color: #26A69A;
 }
 .name {
-  background-color: #FFEE58;
+  border: 1px solid #555555;
+  color: #555555;
 }
