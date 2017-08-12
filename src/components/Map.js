@@ -27,7 +27,13 @@ const MyMap = withGoogleMap(props => {
       >
         { sticker.isInfoWindowOpen
           ? <InfoWindow onCloseClick={() => props.onMarkerClose(sticker)}>
-            <div>{ 'testtest' }</div>
+            <div className="infoWindow">
+              <span></span><br />
+              <span>{sticker.country}</span><br />
+              <span>{sticker.city}</span><br />
+              <span>{sticker.note}</span><br />
+              <span>{sticker.username}</span>
+            </div>
           </InfoWindow>
           : null
         }

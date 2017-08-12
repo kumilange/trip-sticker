@@ -43,9 +43,7 @@ const reducer = (state = initialState, action)=> {
     case 'OPEN_INFO_WINDOW':
       return openInfoWindow(state, action);
     case 'CLOSE_INFO_WINDOW':
-      return Object.assign({}, state, {
-        isInfoWindowOpen : false,
-      });
+      return closeInfoWindow(state, action);
     case 'INPUT_COUNTRY':
       return setStickerInput(state, action, 'country');
     case 'INPUT_CITY':
@@ -80,6 +78,14 @@ const openInfoWindow = (state, action)=> {
   const stickers = [].concat(state.stickers);
   const index = stickers.findIndex(sticker=> sticker.id === action.payload);
   stickers[index].isInfoWindowOpen = true;
+  return Object.assign({}, state, {
+    stickers,
+  });
+}
+const closeInfoWindow = (state, action)=> {
+  const stickers = [].concat(state.stickers);
+  const index = stickers.findIndex(sticker=> sticker.id === action.payload);
+  stickers[index].isInfoWindowOpen = false;
   return Object.assign({}, state, {
     stickers,
   });
