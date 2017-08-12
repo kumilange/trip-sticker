@@ -6,6 +6,10 @@
   margin-right: auto; 
 }
 
+.gmnoprint {
+  display: none !important;
+}
+
 .infoWindow {
   padding-top: 10px;
   padding-bottom: 5px;
@@ -30,7 +34,6 @@
   border-radius: 3px;
   color: #ffffff;
 }
-
 .country {
   background-color: #EF5350;
 }

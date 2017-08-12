@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions, Textfield } from 'react-mdl';
+
 import './Modal.css';
 
 const Modal = (props)=> {
@@ -9,28 +11,32 @@ const Modal = (props)=> {
        <DialogTitle>Make a sticker!</DialogTitle>
         <DialogContent>
           <Textfield
-            onChange={(e) => {props.inputCountry(e.target.value)}}
+            onChange={e => {props.inputCountry(e.target.value)}}
             label="Country"
             floatingLabel
             style={{width: '240px'}}
+            value={props.country}
           />
           <Textfield
-            onChange={(e) => {props.inputCity(e.target.value)}}
+            onChange={e => {props.inputCity(e.target.value)}}
             label="City"
             floatingLabel
             style={{width: '240px'}}
+            value={props.city}
           />
           <Textfield
-            onChange={(e) => {props.inputNote(e.target.value)}}
+            onChange={e => {props.inputNote(e.target.value)}}
             label="Note"
             floatingLabel
             style={{width: '240px'}}
+            value={props.note}
           />
           <Textfield
-            onChange={(e) => {props.inputUsername(e.target.value)}}
+            onChange={e => {props.inputUsername(e.target.value)}}
             label="Your name"
             floatingLabel
             style={{width: '240px'}}
+            value={props.username}
           />
         </DialogContent>
         <DialogActions>
@@ -41,5 +47,10 @@ const Modal = (props)=> {
     </div>
   );
 }
+
+Modal.propTypes = {
+  isModalOpen: PropTypes.bool.isRequired,
+  sticker: PropTypes.object.isRequired
+};
 
 export default Modal;

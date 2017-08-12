@@ -1,12 +1,10 @@
 export function fetchStickers () {
-  return async (dispatch) => {
-    // get sticker data
+  return async dispatch => {
+    // API get, get data from DB
     const response = await (await fetch('http://localhost:3001')).json();
-
     let stickers = [];
     for(let record of response) {
       let sticker = {};
-      //TODO put position
       sticker.lat = record.lat;
       sticker.lng = record.lng;
       sticker.id = record.id;
@@ -15,8 +13,9 @@ export function fetchStickers () {
       sticker.note = record.note;
       sticker.username = record.username;
       sticker.isInfoWindowOpen = false;
-      stickers.push(sticker)
+      stickers.push(sticker);
     }
+    // update state in reducer
     dispatch({
       type: 'INIT_STICKER',
       payload: stickers
@@ -25,10 +24,10 @@ export function fetchStickers () {
 }
 
 export function saveStickerInfo (sticker) {
-  return async (dispatch) => {
+  return async dispatch => {
     try {
       const postData =  sticker;
-      // save data in DB
+      // APT post, save data in DB
       const savedSticker = await ( await fetch('http://localhost:3001', {
         method: 'post',
         headers: {'Content-Type':'application/json'},
@@ -40,14 +39,19 @@ export function saveStickerInfo (sticker) {
         type: 'SAVE_STICKER',
         payload: savedSticker
       });
+
+      dispatch({
+        type: 'CLEAR_STICKER',
+      });
       // TODO reset input forms, need to refactor
+      // reset input form
       resetInputs();
     } catch (err) {
       console.log(err.message)
     }
   }
 }
-//
+
 const resetInputs = ()=> {
   const inputs = document.querySelectorAll('.mdl-textfield__input');
   for(let input of inputs) {

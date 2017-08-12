@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import Map from '../components/Map';
-import { fetchStickers, openModal, openInfoWindow, closeInfoWindow } from '../actions'
+import * as ActionCreators from '../actions'
+import Map from '../components/Map/Map';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     stickers: state.stickers,
   };
@@ -12,10 +12,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({
-    fetchStickers,
-    openModal,
-    openInfoWindow,
-    closeInfoWindow
+    ...ActionCreators
   }, dispatch)
 }
 
