@@ -14,6 +14,7 @@
 
 .infoWindowText {
   margin: 0;
+  font-family: 'Indie Flower', cursive !important;
 }
 
 .country,
@@ -33,15 +34,12 @@
 .country {
   background-color: #EF5350;
 }
-
 .city {
   background-color: #42A5F5;
 }
-
 .note {
   background-color: #26A69A;
 }
-
 .name {
   background-color: #FFEE58;
 }
