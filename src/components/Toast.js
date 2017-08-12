@@ -27,12 +27,12 @@ class Toast extends React.Component {
       <div>
         <Snackbar
           active={isSnackbarActive}
-          timeout={8000}
+          timeout={10000}
           onTimeout={this.handleTimeoutSnackbar}>
           <span>★ How To Use this app</span><br/>
           <span>（1）Click anywhere you wanna visit on the map</span><br/>
           <span>（2）Make a sticker</span><br/>
-          <span>（3）Stack your trip stickers and plan trips!</span>
+          <span>（3）Stack your stickers and plan trips!</span>
         </Snackbar>
       </div>
     );
