@@ -15,3 +15,33 @@
 .infoWindowText {
   margin: 0;
 }
+
+.country,
+.city,
+.name,
+.note{
+  width: 55px;
+  text-align: center;
+  margin-top: 3px;
+  margin-right: 10px;
+  display: inline-block;
+  padding: 1px 3px;
+  border-radius: 3px;
+  color: #ffffff;
+}
+
+.country {
+  background-color: #EF5350;
+}
+
+.city {
+  background-color: #42A5F5;
+}
+
+.note {
+  background-color: #26A69A;
+}
+
+.name {
+  background-color: #FFEE58;
+}
