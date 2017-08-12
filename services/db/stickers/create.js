@@ -2,12 +2,17 @@ module.exports = (knex, Sticker) => {
 
   return async (params) => {
     try {
-      const lat = params.lat;
-      const lng = params.lng;
-      await knex('stickers').insert({lat: lat, lng: lng});
+      await knex('stickers')
+        .insert({
+          lat: params.lat,
+          lng: params.lng,
+          country: params.country,
+          city: params.city,
+          note: params.note,
+          username: params.username,
+        });
       // TODO idに直す
       const stickers = await knex('stickers')
-        .where({ lat: lat, lng: lng })
         .select();
       return new Sticker(stickers.pop());
     } catch (err) {

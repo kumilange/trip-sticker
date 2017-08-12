@@ -2,14 +2,15 @@ const initialState = {
   stickers: [],
   sticker: {
     id: null,
-    position: null,
+    lat: null,
+    lng: null,
     country: null,
     city: null,
     note: null,
     username: null,
+    isInfoWindowOpen: false
   },
   isModalOpen: false,
-  position: null,
 }
 
 const reducer = (state = initialState, action)=> {
@@ -20,53 +21,68 @@ const reducer = (state = initialState, action)=> {
     case 'SAVE_STICKER':
       return saveStickerInfo(state, action);
     case 'OPEN_MODAL':
-      return Object.assign({}, state, {
-        isModalOpen : true,
-        position: action.payload
-      });
+      let newState = Object.assign({}, state);
+      newState.isModalOpen = true;
+      newState.sticker.lat = action.payload.lat;
+      newState.sticker.lng = action.payload.lng;
+      return newState;
     case 'CLOSE_MODAL':
       return Object.assign({}, state, {
         isModalOpen : false,
-        position: null
+        sticker: {
+          id: null,
+          lat: null,
+          lng: null,
+          country: null,
+          city: null,
+          note: null,
+          username: null,
+          isInfoWindowOpen: false
+        },
+      });
+    case 'OPEN_INFO_WINDOW':
+      return openInfoWindow(state, action);
+    case 'CLOSE_INFO_WINDOW':
+      return Object.assign({}, state, {
+        isInfoWindowOpen : false,
       });
     case 'INPUT_COUNTRY':
-      return Object.assign({}, state, {
-        sticker : { country: action.payload }
-      });
+      return setStickerInput(state, action, 'country');
     case 'INPUT_CITY':
-      return Object.assign({}, state, {
-        sticker : { country: action.payload }
-      });
+      return setStickerInput(state, action, 'city');
     case 'INPUT_NOTE':
-      return Object.assign({}, state, {
-        sticker : { country: action.payload }
-      });
+      return setStickerInput(state, action, 'note');
     case 'INPUT_USERNAME':
-      return Object.assign({}, state, {
-        sticker : { country: action.payload }
-      });
+      return setStickerInput(state, action, 'username');
     default:
-    return state;
+      return state;
   }
 }
 
-const saveStickerInfo = (state, action)=> {
-  console.log('save',action)
-  return Object.assign({}, ...state, {
-    stickers: [
-      ...state.stickers,
-      ...state.sticker,
-      ...state.sticker.position
-    ]
-  });
+const setStickerInput = (state, action, label)=> {
+  let newState = Object.assign({}, state);
+  newState.sticker[label] = action.payload;
+  return newState;
 }
 
-// save後にリセットするアクションディスパッチ
+const saveStickerInfo = (state, action)=> {
+  const stickers = [].concat(state.stickers);
+  let newSticker = action.payload;
+  newSticker.isInfoWindowOpen = false;
+  stickers.push(newSticker)
+  return Object.assign({}, state, {
+    stickers,
+    isModalOpen: false,
+  })
+}
 
-// const setStickerInput = (state, action, label)=> {
-//   return Object.assign({}, state, {
-//     sticker : { label: action.payload }
-//   });
-// }
+const openInfoWindow = (state, action)=> {
+  const stickers = [].concat(state.stickers);
+  const index = stickers.findIndex(sticker=> sticker.id === action.payload);
+  stickers[index].isInfoWindowOpen = true;
+  return Object.assign({}, state, {
+    stickers,
+  });
+}
 
 export default reducer;

@@ -9,6 +9,14 @@ exports.up = function(knex, Promise) {
 
     t.float('lng')
       .notNullable()
+
+    t.text('country')
+
+    t.text('city')
+
+    t.text('note')
+
+    t.text('username')
   })
 };
 

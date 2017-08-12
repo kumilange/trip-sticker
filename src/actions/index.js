@@ -5,9 +5,16 @@ export function fetchStickers () {
 
     let stickers = [];
     for(let record of response) {
-      let sticker = {}
+      let sticker = {};
+      //TODO put position
       sticker.lat = record.lat;
       sticker.lng = record.lng;
+      sticker.id = record.id;
+      sticker.country = record.country;
+      sticker.city = record.city;
+      sticker.note = record.note;
+      sticker.username = record.username;
+      sticker.isInfoWindowOpen = false;
       stickers.push(sticker)
     }
     dispatch({
@@ -32,10 +39,19 @@ export function saveStickerInfo (sticker) {
       dispatch({
         type: 'SAVE_STICKER',
         payload: savedSticker
-      })
+      });
+      // TODO reset input forms, need to refactor
+      resetInputs();
     } catch (err) {
       console.log(err.message)
     }
+  }
+}
+//
+const resetInputs = ()=> {
+  const inputs = document.querySelectorAll('.mdl-textfield__input');
+  for(let input of inputs) {
+    input.value = "";
   }
 }
 
@@ -57,6 +73,24 @@ export function closeModal () {
     dispatch({
       type: 'CLOSE_MODAL',
       isModalOpen: false
+    })
+  }
+}
+
+export function openInfoWindow (targetMarker) {
+  return dispatch => {
+    dispatch({
+      type: 'OPEN_INFO_WINDOW',
+      payload: targetMarker.id
+    })
+  }
+}
+
+export function closeInfoWindow (targetMarker) {
+  return dispatch => {
+    dispatch({
+      type: 'CLOSE_INFO_WINDOW',
+      payload: targetMarker.id
     })
   }
 }
