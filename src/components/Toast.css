@@ -1,0 +1,14 @@
+.mdl-snackbar.mdl-snackbar--active {
+  background-color: #009688 !important;
+  opacity: 0.7 !important;
+  visibility: visible !important;
+}
+
+.mdl-snackbar {
+  visibility: hidden !important;
+}
+
+.mdl-snackbar__text {
+  text-align: left;
+  padding: 24px !important;
+}

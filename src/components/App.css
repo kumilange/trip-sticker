@@ -22,3 +22,7 @@ h1 {
   margin-right: 5px;
   margin-bottom: 5px;
 }
+
+.logo-link {
+  text-decoration: none;
+}
