@@ -7,6 +7,8 @@ import thunk from 'redux-thunk'
 import './index.css';
 import reducer from './reducer'
 import App from './components/App';
+import 'react-mdl/extra/material.css';
+import 'react-mdl/extra/material.js';
 
 const store = createStore(
   reducer,

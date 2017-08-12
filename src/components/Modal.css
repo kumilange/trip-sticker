@@ -1,0 +1,67 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0,0,0,.57);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 400px;
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.mdl-dialog__title,
+.mdl-dialog__content,
+.mdl-textfield,
+.mdl-textfield__input,
+.mdl-button {
+  font-family: 'Indie Flower', cursive !important;
+}
+.mdl-dialog {
+  width: 340px !important;;
+  border-radius: 25%;
+}
+.mdl-button {
+  font-size: 19px !important;
+  font-weight: bold !important;
+}
+.mdl-button--accent {
+  border: none !important;
+}
+.mdl-button.confirm {
+  background: rgb(255,64,129);
+  color: #ffffff;
+}
+.mdl-dialog__title {
+  padding: 16px 24px 0;
+  font-size: 30px !important;
+  font-weight: bold;
+}
+.mdl-dialog__content {
+  font-size: 28px !important;
+}
+.mdl-textfield {
+  font-size: 30px !important;
+}
+.mdl-textfield__input {
+  font-size: 26px !important;
+}
+.mdl-dialog__actions {
+  width: 280px !important;
+  padding: 8px 8px 24px 8px !important;
+}

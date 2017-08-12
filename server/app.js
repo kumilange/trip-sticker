@@ -36,8 +36,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // 4. If the requests begin with '/', hand them off to the API router
-//TODO ルーター変更？
-// app.use('/', index)(services);
 app.use('/', apiRounter);
 
 // catch 404 and forward to error handler

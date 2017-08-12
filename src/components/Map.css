@@ -5,3 +5,13 @@
   margin-left: auto;
   margin-right: auto; 
 }
+
+.infoWindow {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  text-align: left;
+}
+
+.infoWindowText {
+  margin: 0;
+}

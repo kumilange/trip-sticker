@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
+import { withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import PropTypes from 'prop-types';
 
 import './Map.css';
@@ -23,7 +23,20 @@ const MyMap = withGoogleMap(props => {
         key = {idx}
         position = {{lat : sticker.lat, lng: sticker.lng }}
         icon = {star}
-      />
+        onClick={() => props.onMarkerClick(sticker)}
+      >
+        { sticker.isInfoWindowOpen
+          ? <InfoWindow onCloseClick={() => props.onMarkerClose(sticker)}>
+            <div className="infoWindow">
+              <p className="infoWindowText">{'Country：'}{sticker.country}</p>
+              <p className="infoWindowText">{'City：'}{sticker.city}</p>
+              <p className="infoWindowText">{'Note：'}{sticker.note}</p>
+              <p className="infoWindowText">{'Name：'}{sticker.username}</p>
+            </div>
+          </InfoWindow>
+          : null
+        }
+      </Marker>
     ))}
     </GoogleMap>
   )}
@@ -50,7 +63,9 @@ class Map extends Component {
           />
         }
         stickers={this.props.stickers}
-        onMapClick={this.props.clickSpot}
+        onMapClick={this.props.openModal}
+        onMarkerClick={this.props.openInfoWindow}
+        onMarkerClose={this.props.closeInfoWindow}
       />
     )
   }
