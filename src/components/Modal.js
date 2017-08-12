@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions, Textfield } from 'react-mdl';
 import './Modal.css';
 
