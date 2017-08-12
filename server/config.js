@@ -1,5 +1,4 @@
 module.exports = {
-
   // database connection configs
   db: {
     client: 'pg',

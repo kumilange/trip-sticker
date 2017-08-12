@@ -40,10 +40,6 @@ export function saveStickerInfo (sticker) {
         payload: savedSticker
       });
 
-      dispatch({
-        type: 'CLEAR_STICKER',
-      });
-      // TODO reset input forms, need to refactor
       // reset input form
       resetInputs();
     } catch (err) {
@@ -56,6 +52,12 @@ const resetInputs = ()=> {
   const inputs = document.querySelectorAll('.mdl-textfield__input');
   for(let input of inputs) {
     input.value = "";
+  }
+
+  return dispatch => {
+    dispatch({
+      type: 'CLEAR_STICKER',
+    })
   }
 }
 

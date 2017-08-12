@@ -22,7 +22,7 @@ const reducer = (state = initialState, action)=> {
     case 'SAVE_STICKER':
       return saveStickerInfo(state, action);
     case 'CLEAR_STICKER':
-      return clearStickerInfo(state, action);
+      return clearStickerInfo(state);
     case 'OPEN_MODAL':
       return openModal(state, action);
     case 'CLOSE_MODAL':
@@ -66,12 +66,13 @@ const saveStickerInfo = (state, action)=> {
   });
 }
 
-const clearStickerInfo = (state, action)=> {
+const clearStickerInfo = (state)=> {
   let newState = Object.assign({}, state);
   newState.sticker.country = null;
   newState.sticker.city = null;
   newState.sticker.note = null;
   newState.sticker.username = null;
+  console.log('new input', newState)
   return newState;
 }
 

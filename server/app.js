@@ -10,18 +10,18 @@ const app = express();
 const config = require('./config.js');
 const services = require('../services')(config);
 const apiRounter = require('./routes/index')(services);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
-// app.use(logger('dev'));
-// 1. log every request when it comes in
+// log every request when it comes in
 app.use(logger('dev'));
 
-// 2. Set the headers for incoming requests
+// set the headers for incoming requests
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS,PATCH');
@@ -29,13 +29,13 @@ app.use((req, res, next) => {
   next();
 });
 
-// 3. Parse request bodies as json
+// parse request bodies as json
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// 4. If the requests begin with '/', hand them off to the API router
+// if the requests begin with '/', hand them off to the API router
 app.use('/', apiRounter);
 
 // catch 404 and forward to error handler

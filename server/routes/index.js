@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = (services)=> {
-  /* GET stickers listing. */
+  /* GET sticker lists */
   router.get('/', async function(req, res, next) {
     try {
       let stickers = await services.db.stickers.list();
@@ -13,7 +13,7 @@ module.exports = (services)=> {
     }
   });
 
-  /* POST stickers listing. */
+  /* POST sticker data */
   router.post('/', async function(req, res, next) {
     try {
       let sticker = await services.db.stickers.create(req.body);
