@@ -8,7 +8,7 @@ const App = (props) => {
   return (
     <div className="App">
       <header>
-        <h1>Trip Sticker</h1>
+        <h1><a href="/">Trip Sticker</a></h1>
       </header>
       <main className="main">
          <div id="map">
