@@ -33,13 +33,11 @@ export function saveStickerInfo (sticker) {
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(postData)
       })).json();
-
       // update state in reducer
       dispatch({
         type: 'SAVE_STICKER',
         payload: savedSticker
       });
-
       // reset input form
       resetInputs();
     } catch (err) {
@@ -80,6 +78,8 @@ export function closeModal () {
       type: 'CLOSE_MODAL',
       isModalOpen: false
     })
+    // reset input form
+    resetInputs();
   }
 }
 
