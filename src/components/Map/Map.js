@@ -11,7 +11,11 @@ const MyMap = withGoogleMap(props => {
     <GoogleMap
       defaultZoom = {2}
       defaultCenter = {{lat: 33.681167, lng: 155.767052}}
-      defaultOptions={{styles: fancyMapStyles,}}
+      defaultOptions={{
+        styles: fancyMapStyles,
+        mapTypeControl: false,
+        streetViewControl: false
+      }}
       onClick={(e)=> {props.onMapClick(e.latLng)}}
     >
     {props.stickers.map((sticker, idx) => (

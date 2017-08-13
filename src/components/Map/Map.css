@@ -7,8 +7,20 @@
   border-radius: 4px;
 }
 
-.gmnoprint {
-  display: none !important;
+.gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom {
+  margin-right: 20px !important;
+}
+
+.gmnoprint a, .gmnoprint span {
+  pointer-events: none;
+  display:none;
+}
+.gmnoprint div {
+  background:none !important;
+}
+
+.gmnoprint div:focus {
+  outline: none;
 }
 
 .infoWindow {
