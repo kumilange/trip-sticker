@@ -11,6 +11,7 @@ module.exports = (knex, Sticker) => {
           note: params.note,
           username: params.username,
         });
+
       const sticker = await knex('stickers')
         .where({id: params.id})
         .select();

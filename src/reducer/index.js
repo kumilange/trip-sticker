@@ -36,7 +36,8 @@ const reducer = (state = initialState, action)=> {
         stickers : [
           ...state.stickers,
           newSticker
-        ]
+        ],
+        sticker: newSticker
       }
     case 'EDIT_STICKER':
       return editStickerInfo(state, action)

@@ -3,6 +3,7 @@ export function fetchStickers () {
     // API get, get data from DB
     const response = await (await fetch('http://localhost:3001')).json();
     let stickers = [];
+
     for(let record of response) {
       let sticker = {};
       sticker.lat = record.lat;
@@ -33,11 +34,13 @@ export function saveStickerInfo (sticker) {
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(postData)
       })).json();
+
       // update state in reducer
       dispatch({
         type: 'SAVE_STICKER',
         payload: savedSticker
       });
+
       // reset input form
       dispatch({
         type: 'CLEAR_STICKER',
@@ -52,17 +55,20 @@ export function editStickerInfo (sticker) {
   return async dispatch => {
     try {
       const putData = sticker;
+
       // APT put, update data in DB
       const updatedSticker = await ( await fetch('http://localhost:3001', {
         method: 'put',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(putData)
       })).json();
+
       // update state in reducer
       dispatch({
         type: 'EDIT_STICKER',
         payload: updatedSticker
       });
+
       // reset input form
       dispatch({
         type: 'CLEAR_STICKER',
@@ -84,11 +90,13 @@ export function deleteSticker (sticker) {
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(deleteData)
       })).json();
+
       // update state in reducer
       dispatch({
         type: 'DELETE_STICKER',
         payload: deletedId
       });
+
       // reset input form
       dispatch({
         type: 'CLEAR_STICKER',
@@ -106,6 +114,7 @@ export function openModalEdit (targetSticker) {
       type: 'CLOSE_INFO_WINDOW',
       payload: targetSticker.id
     })
+
     // open modal for edit
     dispatch({
       type: 'OPEN_EDIT_MODAL',
