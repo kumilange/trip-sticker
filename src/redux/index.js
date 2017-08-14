@@ -219,13 +219,13 @@ export function inputUsername (username) {
 
 /********* reducer *********/
 const stickerInitialState = {
-  id: undefined,
-  lat: undefined,
-  lng: undefined,
-  country: undefined,
-  city: undefined,
-  note: undefined,
-  username: undefined,
+  id: null,
+  lat: null,
+  lng: null,
+  country: '',
+  city: '',
+  note: '',
+  username: '',
   isInfoWindowOpen: false
 }
 
@@ -266,10 +266,10 @@ const reducer = (state = initialState, action)=> {
       return {
         ...state,
         sticker: {
-          country: undefined,
-          city: undefined,
-          note: undefined,
-          username: undefined
+          country: '',
+          city: '',
+          note: '',
+          username: '',
         }
       }
     case OPEN_MODAL:
