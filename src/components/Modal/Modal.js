@@ -55,8 +55,12 @@ const Modal = (props)=> {
 }
 
 Modal.propTypes = {
+  sticker: PropTypes.object.isRequired,
   isModalOpen: PropTypes.bool.isRequired,
-  sticker: PropTypes.object.isRequired
+  isAddModal: PropTypes.bool.isRequired,
+  saveSticker: PropTypes.func.isRequired,
+  editSticker: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
 };
 
 export default Modal;

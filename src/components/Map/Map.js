@@ -68,7 +68,13 @@ class Map extends Component {
 }
 
 Map.propTypes = {
-  stickers: PropTypes.array.isRequired
+  stickers: PropTypes.array.isRequired,
+  fetchStickers: PropTypes.func.isRequired,
+  openModal: PropTypes.func.isRequired,
+  openInfoWindow: PropTypes.func.isRequired,
+  closeInfoWindow: PropTypes.func.isRequired,
+  openModalEdit: PropTypes.func.isRequired,
+  deleteSticker: PropTypes.func.isRequired,
 };
 
 export default Map;
