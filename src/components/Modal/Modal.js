@@ -8,39 +8,45 @@ const Modal = (props)=> {
   return (
     <div>
       <Dialog open={props.isModalOpen}>
-       <DialogTitle>Make a sticker!</DialogTitle>
+        {props.isAddModal
+          ? <DialogTitle>Make a sticker!</DialogTitle>
+          : <DialogTitle>Edit a sticker!</DialogTitle>
+        }
         <DialogContent>
           <Textfield
             onChange={e => {props.inputCountry(e.target.value)}}
             label="Country"
             floatingLabel
             style={{width: '240px'}}
-            value={props.country}
+            value={props.sticker.country}
           />
           <Textfield
             onChange={e => {props.inputCity(e.target.value)}}
             label="City"
             floatingLabel
             style={{width: '240px'}}
-            value={props.city}
+            value={props.sticker.city}
           />
           <Textfield
             onChange={e => {props.inputNote(e.target.value)}}
             label="Note"
             floatingLabel
             style={{width: '240px'}}
-            value={props.note}
+            value={props.sticker.note}
           />
           <Textfield
             onChange={e => {props.inputUsername(e.target.value)}}
             label="Your name"
             floatingLabel
             style={{width: '240px'}}
-            value={props.username}
+            value={props.sticker.username}
           />
         </DialogContent>
         <DialogActions>
-          <Button type='button' onClick={()=> props.saveStickerInfo(props.sticker)} raised accent ripple>Save Sticker</Button>
+          {props.isAddModal
+            ? <Button type='button' onClick={()=> props.saveStickerInfo(props.sticker)} raised accent ripple>Save</Button>
+            : <Button type='button' onClick={()=> props.editStickerInfo(props.sticker)} raised accent ripple>Update</Button>
+          }
           <Button type='button' onClick={props.closeModal} raised ripple>Cancel</Button>
         </DialogActions>
       </Dialog>

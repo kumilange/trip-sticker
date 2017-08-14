@@ -7,6 +7,7 @@ import Modal from '../components/Modal/Modal';
 const mapStateToProps = state => {
   return {
     isModalOpen: state.isModalOpen,
+    isAddModal: state.isAddModal,
     sticker: state.sticker,
   };
 }

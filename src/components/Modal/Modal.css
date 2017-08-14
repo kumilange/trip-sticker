@@ -23,6 +23,12 @@
 dialog::backdrop {
   background: rgba(0, 0, 0, 0.2);
 }
+dialog:not([open]) {
+  display: none;
+}
+dialog[open] {
+  display: block;
+}
 
 .mdl-dialog__title,
 .mdl-dialog__content,

@@ -32,6 +32,10 @@ const MyMap = withGoogleMap(props => {
               <p className="infoWindowText"><span className="city">{'City'}</span>{sticker.city}</p>
               <p className="infoWindowText"><span className="note">{'Note'}</span>{sticker.note}</p>
               <p className="infoWindowText"><span className="name">{'Name'}</span>{sticker.username}</p>
+              <div className="infoWindowBtnWrapper">
+                <button className="deleteBtn" onClick={()=> props.onDeleteSticker(sticker)}>DELETE</button>
+                <button className="editBtn" onClick={()=> props.onEditSticker(sticker)}>EDIT</button>
+              </div>
             </div>
           </InfoWindow>
         : null
@@ -44,7 +48,7 @@ const MyMap = withGoogleMap(props => {
 
 class Map extends Component {
   componentDidMount() {
-    this.props.fetchStickers()
+    this.props.fetchStickers();
   }
 
   render () {
@@ -56,6 +60,8 @@ class Map extends Component {
         onMapClick={this.props.openModal}
         onMarkerClick={this.props.openInfoWindow}
         onMarkerClose={this.props.closeInfoWindow}
+        onEditSticker={this.props.openModalEdit}
+        onDeleteSticker={this.props.deleteSticker}
       />
     )
   }

@@ -26,6 +26,8 @@ Sticker.prototype.serialize = function(){
 module.exports = (knex) => {
   return {
     create: require('./create')(knex, Sticker),
+    update: require('./update')(knex, Sticker),
+    delete: require('./delete')(knex, Sticker),
     list: require('./list')(knex, Sticker),
   };
 };
