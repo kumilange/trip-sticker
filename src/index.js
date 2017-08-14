@@ -6,7 +6,7 @@ import thunk from 'redux-thunk'
 import 'react-mdl/extra/material.css';
 import 'react-mdl/extra/material.js';
 
-import reducer from './reducer'
+import reducer from './redux'
 import App from './components/App/App';
 import './index.css';
 

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as ActionCreators from '../actions'
+import * as ActionCreators from '../redux'
 import Modal from '../components/Modal/Modal';
 
 const mapStateToProps = state => {

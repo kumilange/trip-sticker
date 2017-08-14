@@ -44,8 +44,8 @@ const Modal = (props)=> {
         </DialogContent>
         <DialogActions>
           {props.isAddModal
-            ? <Button type='button' onClick={()=> props.saveStickerInfo(props.sticker)} raised accent ripple>Save</Button>
-            : <Button type='button' onClick={()=> props.editStickerInfo(props.sticker)} raised accent ripple>Update</Button>
+            ? <Button type='button' onClick={()=> props.saveSticker(props.sticker)} raised accent ripple>Save</Button>
+            : <Button type='button' onClick={()=> props.editSticker(props.sticker)} raised accent ripple>Update</Button>
           }
           <Button type='button' onClick={props.closeModal} raised ripple>Cancel</Button>
         </DialogActions>
