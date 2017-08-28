@@ -11,6 +11,15 @@ npm install
 psql
 echo "CREATE DATABASE tripsticker;" | psql
 ```
+### Check connection to DB
+```
+\c tripsticker
+```
+### Check table on DB
+```
+\dt
+```
+
 ### Run migrations and set up the database
 ```
 npm run migrate
