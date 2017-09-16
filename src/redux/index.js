@@ -17,7 +17,7 @@ const INPUT_USERNAME = 'INPUT_USERNAME'
 export function fetchStickers () {
   return async dispatch => {
     // API get, get data from DB
-    const response = await (await fetch('http://localhost:3001')).json();
+    const response = await (await fetch('/stickers')).json();
     let stickers = [];
 
     for(let record of response) {
@@ -45,7 +45,7 @@ export function saveSticker (sticker) {
     try {
       const postData = sticker;
       // APT post, save data in DB
-      const savedSticker = await ( await fetch('http://localhost:3001', {
+      const savedSticker = await ( await fetch('/stickers', {
         method: 'post',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(postData)
@@ -73,7 +73,7 @@ export function editSticker (sticker) {
       const putData = sticker;
 
       // APT put, update data in DB
-      const updatedSticker = await ( await fetch('http://localhost:3001', {
+      const updatedSticker = await ( await fetch('/stickers', {
         method: 'put',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(putData)
@@ -101,11 +101,11 @@ export function deleteSticker (sticker) {
 
     try {
       // APT delete, delete data in DB
-      const deletedId = await ( await fetch('http://localhost:3001', {
+      const deletedId = await ( await fetch('/stickers', {
         method: 'delete',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(deleteData)
-      })).json();
+      }));
 
       // update state in redux
       dispatch({

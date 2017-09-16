@@ -23,12 +23,16 @@
   },
   "scripts": {
     "server": "node ./server/bin/www",
-    "start": "react-scripts start",
+    "backend": "nodemon ./server/bin/www",
+    "frontend": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "migrate": "knex migrate:latest --knexfile services/db/knexfile.js",
     "rollback": "knex migrate:rollback --knexfile services/db/knexfile.js"
   },
-  "proxy": "http://127.0.0.1:3001"
+  "proxy": "http://127.0.0.1:3001",
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
 }
