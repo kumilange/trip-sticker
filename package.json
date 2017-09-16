@@ -22,7 +22,7 @@
     "serve-favicon": "~2.4.2"
   },
   "scripts": {
-    "server": "node ./server/bin/www",
+    "start": "node ./server/bin/www",
     "backend": "nodemon ./server/bin/www",
     "frontend": "react-scripts start",
     "build": "react-scripts build",
