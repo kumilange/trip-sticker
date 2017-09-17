@@ -26,7 +26,6 @@ var server = http.createServer(app);
  */
 
 (async () => {
-  console.log('db', process.env.DATABASE_URL)
   try {
     await knex.migrate.latest();
   } catch (err) {
