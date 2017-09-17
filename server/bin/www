@@ -7,7 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('server:server');
 var http = require('http');
-const knex = require('../../services/db/knexfile');
+const db = require('../../services/db/knexfile');
 
 /**
  * Get port from environment and store in Express.
@@ -27,7 +27,7 @@ var server = http.createServer(app);
 
 (async () => {
   try {
-    await knex.migrate.latest();
+    await db.migrate.latest();
   } catch (err) {
     console.error('Error running migrations!', err);
     process.exit(-1);
