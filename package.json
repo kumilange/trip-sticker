@@ -34,7 +34,6 @@
     "rollback": "knex migrate:rollback --knexfile ./knex.js",
     "postinstall": "yarn build"
   },
-  "proxy": "http://127.0.0.1:3001",
   "devDependencies": {
     "nodemon": "^1.12.1"
   },
