@@ -29,8 +29,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "migrate": "knex migrate:latest --knexfile services/db/knexfile.js",
-    "rollback": "knex migrate:rollback --knexfile services/db/knexfile.js",
+    "migrate": "knex migrate:latest --knexfile ./knex.js",
+    "rollback": "knex migrate:rollback --knexfile ./knex.js",
     "postinstall": "yarn build"
   },
   "proxy": "http://127.0.0.1:3001",
