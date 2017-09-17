@@ -35,5 +35,8 @@
   "proxy": "http://127.0.0.1:3001",
   "devDependencies": {
     "nodemon": "^1.12.1"
+  },
+  "engines": {
+    "node": ">=8.2.1"
   }
 }
