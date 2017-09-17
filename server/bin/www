@@ -15,7 +15,6 @@ const knex = require('../../services/db/knexfile');
 
 var port = normalizePort(process.env.PORT || '3001');
 app.set('port', port);
-
 /**
  * Create HTTP server.
  */
@@ -27,6 +26,7 @@ var server = http.createServer(app);
  */
 
 (async () => {
+  console.log('db', process.env.DATABASE_URL)
   try {
     await knex.migrate.latest();
   } catch (err) {
