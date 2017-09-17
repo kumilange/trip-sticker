@@ -2,7 +2,7 @@
   "name": "trip-sticker",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://github.com/kumiko-haraguchi/trip-sticker",
+  "homepage" : "https://trip-sticker.herokuapp.com/",
   "dependencies": {
     "body-parser": "~1.17.1",
     "cookie-parser": "~1.4.3",
