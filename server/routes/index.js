@@ -6,8 +6,11 @@ module.exports = (services)=> {
   /* GET sticker lists */
   router.get('/', async function(req, res) {
     try {
+      console.log('req start', req)
       let stickers = await services.db.stickers.list();
+      console.log('after db', stickers)
       stickers = stickers.map((sticker) => sticker.serialize());
+      console.log('after seriarize', stickers)
       res.status(200).send(stickers);
     } catch(err) {
       res.status(400).send(err.message);
