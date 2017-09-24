@@ -13,6 +13,7 @@ module.exports = (services)=> {
       console.log('after seriarize', stickers)
       res.status(200).send(stickers);
     } catch(err) {
+      console.error('error', err)
       res.status(400).send(err.message);
     }
   });
