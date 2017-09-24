@@ -1,12 +1,11 @@
-## README.md (Sorry, still wip)
-
+## README.md 
 ## Get Started
 
 ### Install 
 ```
 npm install
 ```
-### Create DB (Using postgress is required)
+### Create DB (Postgress is required)
 ```
 psql
 echo "CREATE DATABASE tripsticker;" | psql
