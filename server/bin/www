@@ -26,6 +26,7 @@ var server = http.createServer(app);
  */
 
 (async () => {
+  console.log('env', process.env.DATABASE_URL)
   try {
     await db.migrate.latest();
   } catch (err) {
