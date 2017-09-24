@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -9,25 +8,10 @@ const app = express();
 // added
 const config = require('./config.js');
 const services = require('../services')(config);
-const apiRounter = require('./routes/index')(services);
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
-// uncomment after placing your favicon in /public
-// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+const apiRounter = require('./routes/index.js')(services);
 
 // log every request when it comes in
 app.use(logger('dev'));
-
-// set the headers for incoming requests
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS,PATCH');
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, authorization");
-  next();
-});
 
 // parse request bodies as json
 app.use(bodyParser.json());
