@@ -1,13 +1,12 @@
-## README.md 
+## trip-sticker 
 ## Get Started
 
 ### Install 
 ```
-npm install
+yarn install
 ```
 ### Create DB (Postgress is required)
 ```
-psql
 echo "CREATE DATABASE tripsticker;" | psql
 ```
 ### Check connection to DB
@@ -21,17 +20,17 @@ echo "CREATE DATABASE tripsticker;" | psql
 
 ### Run migrations and set up the database
 ```
-npm run migrate
+yarn migrate
 ```
 ### Roll back migrations
 ```
-npm run rollback
+yarn rollback
 ```
 ### Run client server
 ```
-npm start
+yarn frontend
 ```
 ### Run server server
 ```
-npm run server
+yarn backend
 ```
