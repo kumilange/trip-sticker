@@ -1,44 +1,31 @@
 ## Trip-sticker 
-Do you day dream about traveling?
-Trip-sticker is a simple board to share your trip plans and experiences with your friends by leaving a little star sticker. 
+**Do you day dream about traveling?**
+Trip-sticker is a simple board to share your trip plans and experiences with your friends by leaving a little star-shaped sticker. 
 ![2017-11-09 20 53 06](https://user-images.githubusercontent.com/28984604/32604208-2d91d2ac-c590-11e7-940d-16d762d397af.png)
 ## Get Started
+### Prerequisites
+- node > 8.0.0
+- yarn
+- PostgreSQL
 
-### Install 
+### 1. Installing
 ```
 yarn install
 ```
-### Create DB (Postgress is required)
+
+### 2. Create DB & Run migration & Seed dummy data
 ```
 echo "CREATE DATABASE tripsticker;" | psql
-```
-### Check connection to DB
-```
-\c tripsticker
-```
-### Check table on DB
-```
-\dt
+# \c tripsticker
+
+yarn migrate
+yarn seed
 ```
 
-### Run migrations and set up the database
-```
-yarn migrate
-```
-### Roll back migrations
-```
-yarn rollback
-```
-### Run client server
+### 3. Running Dev & API servers
 ```
 yarn frontend
-```
-### Run server server
-```
 yarn backend
 ```
-
-## How to use
-1. Click anywhere on the map you'd like to visit or already visited
-2. Write the place and your name and whatever thoughts you'd like to share 
-3. The star shaped sticker will be on the board!
+=> You'll see the map!🗺💃
+=> Follow the instruction on snackbar 
