@@ -32,7 +32,7 @@ yarn backend
 ## Built With
 * [React](https://facebook.github.io/react/) - Frontend
 * [Redux](https://github.com/reactjs/redux) - State Management
-* [Material UI](http://www.material-ui.com/) - Frontend
+* [Material UI](http://www.material-ui.com/) - UI Component
 * [Express](https://expressjs.com/) - Backend
 * [PostgreSQL](https://www.postgresql.org/) - Database
 * [Knex](http://knexjs.org/) - Query Builder
