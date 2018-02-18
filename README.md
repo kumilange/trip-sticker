@@ -2,6 +2,7 @@
 **Do you day dream about traveling?**
 Trip Sticker is a simple board to share your trip plans and experiences with your friends by leaving a little star-shaped sticker. 
 ![2017-11-09 20 53 06](https://user-images.githubusercontent.com/28984604/32604208-2d91d2ac-c590-11e7-940d-16d762d397af.png)
+
 ## Get Started
 ### Prerequisites
 - node > 8.0.0
