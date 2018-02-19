@@ -40,4 +40,3 @@ yarn backend
 * [Express](https://expressjs.com/) - Backend
 * [PostgreSQL](https://www.postgresql.org/) - Database
 * [Knex](http://knexjs.org/) - Query Builder
-
